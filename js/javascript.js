@@ -1,29 +1,117 @@
-function getComputerChoice(max) {
+const ROCK = 1
+const SCISSORS = 2
+const PAPER = 3
 
-    return Math.floor(Math.random() * max + 1);
+let humanScore = 0;
+let computerScore = 0;
+
+function getComputerChoice() {
+
+    return Math.floor(Math.random() * 3 + 1);
 }
 
 function getHumanChoice(){
+
+    const choice = prompt ("Rock Paper Scissors?")
     
-    return prompt(" 1 Rock 2 Paper 3 Scissors?")
+    if (choice === null){
+        playRound(getHumanChoice(), getComputerChoice())
+    }
+
+    return choice
+    
 }
 
-function showAnswer(choice) {
+function showComputerAnswer(choice) {
 
-    if (choice === 1){
+    if (choice === ROCK){
         console.log("rock");
     }
 
-    else if (choice === 2){
+    else if (choice === PAPER){
         console.log("paper");
     }
 
-    else if (choice === 3){
+    else if (choice === SCISSORS){
         console.log("scissors");
     }
 }
 
-let computerChoice = getComputerChoice(3);
-let humanChoice = getHumanChoice()
+function showHumanAnswer(choice) {
 
-showAnswer(computerChoice)
+    if (choice === "rock"){
+        console.log("rock");
+    }
+
+    else if (choice === "paper"){
+        console.log("paper");
+    }
+
+    else if (choice === "scissors"){
+        console.log("scissors");
+    
+    }
+    else{
+        console.log("INVALID ANSWER")
+        playRound(getHumanChoice(), getComputerChoice())
+    }
+}
+
+function playRound(humanChoice, computerChoice){
+
+    showHumanAnswer(humanChoice.toLowerCase());
+    showComputerAnswer(computerChoice);
+    displayWinner(humanChoice, computerChoice)
+
+}
+
+function displayWinner(humanChoice, computerChoice){
+
+    if (
+        (humanChoice === "rock" && computerChoice === ROCK) || 
+        (humanChoice === "scissors" && computerChoice === SCISSORS) ||
+        (humanChoice === "paper" && computerChoice === PAPER)
+    )
+    {
+        console.log("no winner")
+        console.log("HUMAN:" + " " + humanScore + " " + "ROBOT:" + " " + computerScore)
+    }
+
+    else if(
+        (humanChoice === "rock" && computerChoice === PAPER) || 
+        (humanChoice === "scissors" && computerChoice === ROCK) ||
+        (humanChoice === "paper" && computerChoice === SCISSORS)
+    )
+    {
+        console.log("loser")
+        computerScore += 1
+        console.log("HUMAN:" + " " + humanScore + " " + "ROBOT:" + " " + computerScore)
+    }
+
+    else if(
+        (humanChoice === "paper" && computerChoice === ROCK) || 
+        (humanChoice === "rock" && computerChoice === SCISSORS) ||
+        (humanChoice === "scissors" && computerChoice === PAPER)
+    )
+    {
+        console.log("you are smarter than robot")
+        humanScore += 1
+        console.log("HUMAN:" + " " + humanScore + " " + "ROBOT:" + " " + computerScore)
+    }
+
+}
+
+function playGame() {
+ 
+    playRound(getHumanChoice(), getComputerChoice())
+    playRound(getHumanChoice(), getComputerChoice())
+    playRound(getHumanChoice(), getComputerChoice())
+    playRound(getHumanChoice(), getComputerChoice())
+    playRound(getHumanChoice(), getComputerChoice())
+}
+
+playGame()
+
+
+
+
