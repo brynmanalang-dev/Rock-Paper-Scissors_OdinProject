@@ -1,0 +1,96 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.center{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.textInstruction{
+    display: none;
+    animation-name: fadeIn;
+    animation-duration: 0.5s;
+    font-family: 'Franklin Gothic Heavy', 'Arial Narrow', Arial, sans-serif;
+    color: black;
+}
+
+.textInstruction.show{
+    display: block;
+}
+
+.round{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Franklin Gothic Heavy', 'Arial Narrow', Arial, sans-serif;
+    font-size: 60px;
+    animation-duration: 1.5s;
+    animation-name: pop;
+    position: relative;
+    z-index: 2;
+}
+
+.options a{
+    display: none;
+    z-index: 1;
+    animation-name: fadeIn;
+    animation-duration: 0.5s;
+    flex-direction: row;
+    gap: 40px;
+    text-decoration: none;
+}
+
+.options.show a{
+    display: flex;
+
+}
+
+.rock,.paper,.scissors{
+    outline: solid;
+    outline-color: gray;
+    border-radius: 10px;
+    height: 200px;
+    width: 200px;
+    font-size: 100px;
+    transition: transform 1s;
+}
+
+.rock:hover, .paper:hover, .scissors:hover{
+    transform: translateY(-10px);
+    transition: 1s;
+}
+
+@keyframes fadeIn{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes pop{
+    0%{
+        opacity: 0;
+        transform: rotate(180deg);
+        scale: 2;
+    }
+    80%{
+        opacity: 1;
+        transform: rotate(0deg);
+        scale: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+
+}
