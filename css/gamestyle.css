@@ -1,0 +1,160 @@
+*{
+    box-sizing: border-box;
+    user-select: none;
+}
+
+body{
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+
+#settings{
+    height: auto;
+    width: 40px;
+    color: black;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 4;
+}
+
+.settingsUi{
+    display: flex;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 7;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.433);
+}
+
+.settingsUi.show{
+    opacity: 1;
+    display: flex;
+}
+
+.settingsInner{
+    background-color: white;
+    outline: solid;
+    outline-color: black;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+
+}
+
+.center{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: relative;
+}
+
+.textInstruction{
+    display: none;
+    animation-name: fadeIn;
+    animation-duration: 0.5s;
+    font-family: 'Franklin Gothic Heavy', 'Arial Narrow', Arial, sans-serif;
+    color: black;
+}
+
+.textInstruction.show{
+    display: block;
+}
+
+#round{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Franklin Gothic Heavy', 'Arial Narrow', Arial, sans-serif;
+    font-size: 60px;
+    animation-duration: 1.5s;
+    animation-name: pop;
+    position: relative;
+    z-index: 6;
+}
+
+.options a{
+    display: none;
+    z-index: 1;
+    animation-name: fadeIn;
+    animation-duration: 0.5s;
+    flex-direction: row;
+    gap: 40px;
+    text-decoration: none;
+
+}
+
+.options.show a{
+    display: flex;
+}
+
+#homeScreen, #closeSettings{
+    background-color: transparent;
+    border-radius: 4px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    cursor: pointer;
+}
+
+#openSettings{
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 10;
+    cursor: pointer;
+}
+
+#openSettings svg{
+    fill: black;
+}
+
+.rock,.paper,.scissors{
+    outline: solid;
+    outline-color: gray;
+    border-radius: 10px;
+    height: 200px;
+    width: 200px;
+    font-size: 100px;
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.rock:hover, .paper:hover, .scissors:hover{
+    transform: translateY(-10px);
+    transition: 1s;
+}
+
+@keyframes fadeIn{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes pop{
+    0%{
+        opacity: 0;
+        transform: rotate(180deg);
+        scale: 2;
+    }
+    80%{
+        opacity: 1;
+        transform: rotate(0deg);
+        scale: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+
+}
