@@ -1,18 +1,60 @@
 *{
     box-sizing: border-box;
+    user-select: none;
 }
 
 body{
-    display: flex;
-    align-items: center;
-    justify-content: center;
     height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+
+#settings{
+    height: auto;
+    width: 40px;
+    color: black;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 4;
+}
+
+.settingsUi{
+    display: flex;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 7;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.433);
+}
+
+.settingsUi.show{
+    opacity: 1;
+    display: flex;
+}
+
+.settingsInner{
+    background-color: white;
+    outline: solid;
+    outline-color: black;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+
 }
 
 .center{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: relative;
 }
 
 .textInstruction{
@@ -27,7 +69,7 @@ body{
     display: block;
 }
 
-.round{
+#round{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -36,7 +78,7 @@ body{
     animation-duration: 1.5s;
     animation-name: pop;
     position: relative;
-    z-index: 2;
+    z-index: 6;
 }
 
 .options a{
@@ -47,11 +89,32 @@ body{
     flex-direction: row;
     gap: 40px;
     text-decoration: none;
+
 }
 
 .options.show a{
     display: flex;
+}
 
+#homeScreen, #closeSettings{
+    background-color: transparent;
+    border-radius: 4px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    cursor: pointer;
+}
+
+#openSettings{
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 10;
+    cursor: pointer;
+}
+
+#openSettings svg{
+    fill: black;
 }
 
 .rock,.paper,.scissors{
@@ -61,7 +124,8 @@ body{
     height: 200px;
     width: 200px;
     font-size: 100px;
-    transition: transform 1s;
+    transition: transform 0.3s;
+    cursor: pointer;
 }
 
 .rock:hover, .paper:hover, .scissors:hover{

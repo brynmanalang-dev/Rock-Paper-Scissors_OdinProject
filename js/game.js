@@ -1,6 +1,9 @@
 const ROCK = 1
 const SCISSORS = 2
 const PAPER = 3
+const rockHuman = document.getElementById("rock")
+const paperHuman = document.getElementById("paper")
+const scissorsHuman = document.getElementById("scissors")
 
 let humanScore = 0;
 let computerScore = 0;
@@ -12,14 +15,19 @@ function getComputerChoice() {
 
 function getHumanChoice(){
 
-    const choice = prompt ("Rock Paper Scissors?")
-    
-    if (choice === null){
-        playRound(getHumanChoice(), getComputerChoice())
-    }
+rockHuman.addEventListener("click", () => {
+    playRound("rock", getComputerChoice())
+})
+paperHuman.addEventListener("click", () => {
+    console.log("paper")
+     playRound("paper", getComputerChoice())
+})
 
-    return choice
-    
+scissorsHuman.addEventListener("click", () => {
+    console.log("scissors")
+    playRound("scissors", getComputerChoice())
+})
+
 }
 
 function showComputerAnswer(choice) {
@@ -51,15 +59,11 @@ function showHumanAnswer(choice) {
         console.log("scissors");
     
     }
-    else{
-        console.log("INVALID ANSWER")
-        playRound(getHumanChoice(), getComputerChoice())
-    }
 }
 
 function playRound(humanChoice, computerChoice){
 
-    showHumanAnswer(humanChoice.toLowerCase());
+    showHumanAnswer(humanChoice)
     showComputerAnswer(computerChoice);
     displayWinner(humanChoice, computerChoice)
 
@@ -102,16 +106,9 @@ function displayWinner(humanChoice, computerChoice){
 }
 
 function playGame() {
- 
-    playRound(getHumanChoice(), getComputerChoice())
-    playRound(getHumanChoice(), getComputerChoice())
-    playRound(getHumanChoice(), getComputerChoice())
-    playRound(getHumanChoice(), getComputerChoice())
-    playRound(getHumanChoice(), getComputerChoice())
+    
+    getHumanChoice()
+
 }
 
 playGame()
-
-
-
-
