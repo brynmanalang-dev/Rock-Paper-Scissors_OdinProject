@@ -7,6 +7,7 @@ body{
     height: 100vh;
     padding: 0;
     margin: 0;
+    overflow: hidden;
 }
 
 #settings{
@@ -19,7 +20,7 @@ body{
     z-index: 4;
 }
 
-.settingsUi{
+.settingsUi, .endScreen{
     display: flex;
     display: none;
     justify-content: center;
@@ -38,23 +39,33 @@ body{
     display: flex;
 }
 
-.settingsInner{
+.settingsInner, .endInner{
     background-color: white;
     outline: solid;
     outline-color: black;
     text-align: center;
     padding: 10px;
     border-radius: 5px;
-
+    font-family: 'Franklin Gothic Heavy', 'Arial Narrow', Arial, sans-serif;
 }
 
-.center{
+
+
+#center{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
     position: relative;
+}
+
+.scoreboard{
+    display: flex;
+    flex-direction: row;
+    gap: 200px;
+    font-family: 'Franklin Gothic Heavy', 'Arial Narrow', Arial, sans-serif;
+    font-size: 100px;
 }
 
 .textInstruction{
@@ -69,7 +80,7 @@ body{
     display: block;
 }
 
-#round{
+.round{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -79,6 +90,14 @@ body{
     animation-name: pop;
     position: relative;
     z-index: 6;
+}
+
+.hide{
+    display: none;
+}
+
+.show{
+    display: flex;
 }
 
 .options a{
@@ -96,11 +115,12 @@ body{
     display: flex;
 }
 
-#homeScreen, #closeSettings{
+#homeScreen, #closeSettings, #homeScreenEnd, #restartGame{
     background-color: transparent;
     border-radius: 4px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     cursor: pointer;
+    font-family: 'Franklin Gothic Heavy', 'Arial Narrow', Arial, sans-serif;
 }
 
 #openSettings{
@@ -132,6 +152,107 @@ body{
     transform: translateY(-10px);
     transition: 1s;
 }
+
+.hands{
+    display: flex;
+    flex-direction: row;
+    gap: 350px;
+    z-index: 5;
+}
+
+#computerHand{
+    height: auto;
+    width: 400px;
+}
+
+.animateComputer{
+    animation: moveInComputer;
+    animation-duration: 3s;
+    transform: translateX(100);
+}
+    
+
+#humanHand{
+    height: auto;
+    width: 400px;
+}
+
+.animateHuman{
+    animation: moveInHuman;
+    animation-duration: 3s;
+    transform: translateX(100);
+}
+
+.watermark{
+    display: flex;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    opacity: 0.5;
+    color: black;
+    text-decoration: none;
+}
+
+.watermark a{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    opacity: 0.5;
+    color: black;
+}
+
+
+@keyframes moveInHuman{
+    0%{
+        transform: translateX(-200px);
+    }
+    10%{
+        transform: translateX(0px);
+    }
+    20%{
+        transform: translateY(-100px) rotate(-50deg) ;
+    }
+    30%{
+        transform: translateY(0px) rotate(0deg);;
+    }
+    40%{
+        transform: translateY(-100px) rotate(-50deg);
+    }
+    50%{
+        transform: translateY(0px) rotate(0deg);
+    }
+    60%{
+        transform: translateY(-100px) rotate(-50deg);
+    }
+    70%{
+        transform: translateY(0px) rotate(0deg);
+    }
+}
+
+@keyframes moveInComputer{
+    0%{
+        transform: translateX(200px);
+    }
+    10%{
+        transform: translateX(0px);
+    }
+    20%{
+        transform: translateY(-100px) rotate(50deg) ;
+    }
+    30%{
+        transform: translateY(0px) rotate(0deg);;
+    }
+    40%{
+        transform: translateY(-100px) rotate(50deg);
+    }
+    50%{
+        transform: translateY(0px) rotate(0deg);
+    }
+    60%{
+        transform: translateY(-100px) rotate(50deg);
+    }
+    70%{
+        transform: translateY(0px) rotate(0deg);
+    }
+
+}
+
 
 @keyframes fadeIn{
     0%{
