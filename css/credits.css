@@ -1,0 +1,16 @@
+.credits{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Franklin Gothic Heavy', 'Arial Narrow', Arial, sans-serif;
+}
+
+.credits a{
+    color: black;
+}
+#GOBACK{
+    font-size: 90px;
+    color: grey;
+    text-decoration: none;
+}
