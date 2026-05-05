@@ -17,7 +17,7 @@ const roundSound = new Audio("../sfx/whoosh.wav")
 const winRoundSound = new Audio("../sfx/win.mp3")
 const loseroundSound = new Audio("../sfx/loseturn.mp3")
 const loseGameSound = new Audio("../sfx/lose.mp3")
-const winGameSound = new Audio("../sfx/winGame.mp3")
+const winGameSound = new Audio("../sfx/wingame.mp3")
 const drawSound = new Audio("../sfx/draw.mp3")
 const bgMusic = new Audio("../sfx/bgMusic.mp3")
 
