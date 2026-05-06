@@ -12,14 +12,16 @@ const endScreen = document.getElementById("endScreen")
 const status = document.getElementById("status")
 const humanHand = document.getElementById("humanHand")
 const computerHand = document.getElementById("computerHand")
-const clickSound = new Audio("../sfx/mc-click.wav")
-const roundSound = new Audio("../sfx/whoosh.wav")
+const background =  document.getElementById("background")
+
+const clickSound = new Audio("../sfx/mc-click.mp3")
 const winRoundSound = new Audio("../sfx/win.mp3")
 const loseroundSound = new Audio("../sfx/loseturn.mp3")
 const loseGameSound = new Audio("../sfx/lose.mp3")
 const winGameSound = new Audio("../sfx/wingame.mp3")
 const drawSound = new Audio("../sfx/draw.mp3")
 const bgMusic = new Audio("../sfx/bgMusic.mp3")
+const handwhoosh = new Audio("../sfx/handwhoosh.mp3")
 
 let humanScore = 0;
 let computerScore = 0;
@@ -102,6 +104,7 @@ function displayWinner(humanChoice, computerChoice){
     )
     {
         drawSound.play()
+        background.classList.add("tie")
     }
 
     else if(
@@ -113,6 +116,7 @@ function displayWinner(humanChoice, computerChoice){
         computerScore += 1
         displayComputerScore.textContent= computerScore
         loseroundSound.play()
+        background.classList.add("lose")
     }
 
     else if(
@@ -124,20 +128,24 @@ function displayWinner(humanChoice, computerChoice){
         humanScore += 1
         displayHumanScore.textContent= humanScore
         winRoundSound.play()
+        background.classList.add("win")
     }
     setTimeout(() => {
         checkScores()  
     }, 1000);
 }
 
-function playGame() {
+function playGame() {   
+    handwhoosh.play()
     round.classList.remove("hide")
     round.textContent= "ROUND" + " " + rounds;
     humanHand.classList.add("animateHuman")
     computerHand.classList.add("animateComputer")
     computerImg.src="../img/rockhand.png"
     humanHand.src="../img/rockhandhuman.png"
-    roundSound.play()
+    background.classList.remove("win")
+    background.classList.remove("lose")
+    background.classList.remove("tie")
 }
 
 
