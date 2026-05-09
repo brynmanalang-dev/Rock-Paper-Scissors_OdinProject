@@ -13,3 +13,5 @@ A Fun and simple game of Rock Paper Scissors provided by The Odin Project
 * Victory and Lose Screen
 
 * Many more!
+
+Made in HTML, CSS, JAVASCRIPT
